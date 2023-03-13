@@ -8,16 +8,16 @@ require('dotenv').config({path: 'thighs.env'})
 
 /*      Initialization      */
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-client.commands = new Collection();
 
+// Grab commands
+client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-// Grab commands
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
-	// Put commands i collection
+	// Put commands in collection
 	if ('data' in command && 'execute' in command) {
 		client.commands.set(command.data.name, command);
 	} else {
