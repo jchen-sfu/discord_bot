@@ -30,9 +30,16 @@ client.once(Events.ClientReady, c => {
 });
 
 /*          Login           */
-console.log('Waking up...')
-
-client.login(process.env.DISCORD_TOKEN);
+(async () => {
+	try {
+		console.log('Waking up...')
+		client.login(process.env.DISCORD_TOKEN);
+		console.log('Standing by...');
+	} catch (error) {
+		console.log('Bot dead.');
+		console.error(error);
+	}
+})();
 
 /*          Handler           */
 client.on(Events.InteractionCreate, async interaction => {
