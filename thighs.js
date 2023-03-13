@@ -34,7 +34,6 @@ client.once(Events.ClientReady, c => {
 	try {
 		console.log('Waking up...')
 		client.login(process.env.DISCORD_TOKEN);
-		console.log('Standing by...');
 	} catch (error) {
 		console.log('Bot dead.');
 		console.error(error);
