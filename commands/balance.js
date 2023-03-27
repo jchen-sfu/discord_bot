@@ -5,7 +5,7 @@ const { SlashCommandBuilder, BaseClient } = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('balance')
-		.setDescription('Check your bank balance'),
+		.setDescription('Check your balance'),
 	async execute(interaction) {
         fs.readFile(`userdata/${interaction.user.id}.csv`, 'utf8', (err, f) => {
             if (err) throw err;
